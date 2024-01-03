@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className={`opacity-0 animate-fade-in ${styles.dancingText}`}>
+    <section id="contact" className={`opacity-0 animate-fade-in`}>
       <h2>Contact</h2>
       <div>
           <p>

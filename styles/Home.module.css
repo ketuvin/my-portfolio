@@ -1,5 +1,9 @@
 .container {
   padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .main {
@@ -127,18 +131,13 @@
     filter: invert(1);
   }
 }
-
-.projectSlider {
-  display: flex;
-  overflow: hidden; /* Ensure the content doesn't overflow */
-}
-
 .project {
   flex: 0 0 32.88%;
   border: 2px solid #ddd;
   padding: 10px;
   margin-right: 10px;
   border-radius: 8px;
+  margin-bottom: 10px;
   transition: border-color 0.3s ease;
 }
 
@@ -156,11 +155,13 @@
 }
 
 .projectDescription {
+  font-size: medium;
   color: #555;
   margin-bottom: 12px;
 }
 
 .projectTech {
+  font-size: small;
   font-style: italic;
   margin-bottom: 12px;
 }
@@ -213,11 +214,6 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .projectSlider {
-    flex-direction: column; /* Stack projects vertically on smaller screens */
-    gap: 10px;
-  }
-
   .project {
     width: 100%;
     border: 1px solid #ddd;
@@ -235,23 +231,6 @@
   }
 }
 
-.dancingText {
-  transition: transform 0.3s ease-in-out;
-}
-
-.dancingText:hover {
-  animation: dance 0.5s infinite alternate;
-}
-
-@keyframes dance {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-10px);
-  }
-}
-
 .proprietary {
   cursor: pointer;
   padding: 5px;
@@ -262,4 +241,96 @@
   border-radius: 3px;
   transition: background-color 0.3s ease;
   display: inline-block;
+}
+
+.aboutMe {
+  position: relative;
+  height: auto;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  height: 30px;
+}
+
+.windowControls {
+  display: flex;
+  gap: 4px;
+  margin-left: auto; /* Move window controls to the right */
+}
+
+.closeButton,
+.minimizeButton,
+.maximizeButton {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* Adjust font size */
+}
+
+.minimizeButton::before {
+  content: '_'; /* Minus sign for minimize */
+}
+
+.maximizeButton::before {
+  content: '\2195'; /* Arrow for maximize */
+}
+
+.closeButton::before {
+  content: '\00D7'; /* Close (multiplication symbol) */
+}
+
+.titleBar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.editorTitle {
+  color: #fff;
+  font-size: 14px;
+}
+
+.editor {
+  padding: 16px;
+  color: #fff;
+  font-family: 'Fira Code', monospace;
+  line-height: 1.5;
+  overflow: auto;
+  height: 100%;
+}
+
+/* Add syntax highlighting styles */
+.editorText {
+  color: #a9df90; /* Green */
+}
+
+/* Cursor Animation */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: #fff;
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

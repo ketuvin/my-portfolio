@@ -1,10 +1,20 @@
 import React from 'react';
-import styles from '../styles/Home.module.css';
+import { TypeAnimation } from 'react-type-animation';
 
 const Header: React.FC = () => {
   return (
-    <header className={`transition-opacity ${styles.dancingText}`}>
-      <h1 className="font-bold mb-2 opacity-0 animate-fade-in">Kevin Fuentes</h1>
+    <header className={`transition-opacity`}>
+      <TypeAnimation
+        sequence={[
+          // Same substring at the start will only be typed out once, initially
+          'Kevin Fuentes',
+          1000,
+        ]}
+        wrapper="span"
+        speed={50}
+        style={{ fontSize: '4em', display: 'inline-block' }}
+        repeat={Infinity}
+      />
       <p className="opacity-0 animate-fade-in">Full Stack Developer</p>
     </header>
   );

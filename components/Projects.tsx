@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className={`opacity-0 animate-fade-in ${styles.dancingText}`}>
+    <section id="projects" className={`opacity-0 animate-fade-in`}>
       <h2>Projects</h2>
       <div className={styles.projectSlider}>
         {currentProjects.map((project, index) => (
