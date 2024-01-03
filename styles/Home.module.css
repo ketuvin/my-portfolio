@@ -314,6 +314,7 @@
 
 /* Add syntax highlighting styles */
 .editorText {
+  margin-bottom: 12px;
   color: #a9df90; /* Green */
 }
 
