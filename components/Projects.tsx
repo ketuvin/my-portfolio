@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
     {
       title: 'DHSUD Housing Loan App',
       description: 'The goal of DHSUD is to prioritize individuals who are in need and qualified for housing. The government aims to accomplish 1M houses every year and with the help of the webapp we would be able to speed up the process of reservation of houses for the contractors. It provides the platform for the borrowers to select the project of the contractor, reserve the house they plan to buy and provide them the payment schedule that they need to do monthly. It does KYC for the borrower and make payment collections via Gcash, Debit Card and etc. monthly.',
-      technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCASH API, Stripe',
+      technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCash, Stripe',
       imageUrls: ['/images/dhsud-1.png', '/images/dhsud-2.png', '/images/dhsud-3.png'],
       projectLink: 'https://www.finnoven.ph/',
       proprietary: true
