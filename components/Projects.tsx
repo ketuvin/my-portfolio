@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     {
       title: 'Kaddy Marketplace',
       description: 'Kaddy Marketplace is a simple solution for managing beverage discovery, ordering and payments.',
-      technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, FullStory, Segment, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
+      technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, Algolia, FullStory, Segment, Stripe, Zepto Payments, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
       imageUrls: ['/images/kaddy-marketplace-1.png', '/images/kaddy-marketplace-2.png'],
       projectLink: 'https://www.kaddy.com.au/',
       proprietary: true
@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
     {
       title: 'Kaddy Connect',
       description: 'Kaddy Connect is an inventory, sales, and shipment management system designed for warehouses to manage and track their products and orders.',
-      technologies: 'Tech Stack: NextJS (Redux), SASS, Laravel, MySQL, AWS (S3, EC2, Elastic Beanstalk, SQS, Amplify, Code Pipeline)',
+      technologies: 'Tech Stack: NextJS (Redux), SASS, Laravel, MySQL, AWS (S3, EC2, Elastic Beanstalk, SQS, Amplify, Code Pipeline), CartonCloud, Xero, Auspost',
       imageUrls: ['/images/kaddy-connect-1.png', '/images/kaddy-connect-2.png'],
       projectLink: 'https://www.kaddy.com.au/',
       proprietary: true
@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
     {
       title: 'DHSUD Housing Loan App',
       description: 'The goal of DHSUD is to prioritize individuals who are in need and qualified for housing. The government aims to accomplish 1M houses every year and with the help of the webapp we would be able to speed up the process of reservation of houses for the contractors. It provides the platform for the borrowers to select the project of the contractor, reserve the house they plan to buy and provide them the payment schedule that they need to do monthly. It does KYC for the borrower and make payment collections via Gcash, Debit Card and etc. monthly.',
-      technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS',
+      technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCASH API, Stripe',
       imageUrls: ['/images/dhsud-1.png', '/images/dhsud-2.png', '/images/dhsud-3.png'],
       projectLink: 'https://www.finnoven.ph/',
       proprietary: true
