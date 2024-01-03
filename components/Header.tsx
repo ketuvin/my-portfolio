@@ -11,7 +11,7 @@ const Header: React.FC = () => {
           1000,
         ]}
         wrapper="span"
-        speed={50}
+        speed={10}
         style={{ fontSize: '4em', display: 'inline-block' }}
         repeat={Infinity}
       />
