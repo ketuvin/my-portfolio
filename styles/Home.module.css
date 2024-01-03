@@ -127,3 +127,139 @@
     filter: invert(1);
   }
 }
+
+.projectSlider {
+  display: flex;
+  overflow: hidden; /* Ensure the content doesn't overflow */
+}
+
+.project {
+  flex: 0 0 32.88%;
+  border: 2px solid #ddd;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.active {
+  border-color: #555;
+}
+
+.project:hover {
+  border-color: #555;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.projectDescription {
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.projectTech {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.imageGallery {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.galleryImages {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.galleryImage {
+  flex: 0 0 33.333%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.projectNav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 5px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #555;
+}
+
+/* Center the anchor tags horizontally */
+.projectNav a {
+  display: inline-block;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .projectSlider {
+    flex-direction: column; /* Stack projects vertically on smaller screens */
+    gap: 10px;
+  }
+
+  .project {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  .projectNav {
+    margin-top: 10px;
+  }
+
+  .prev,
+  .next {
+    padding: 5px;
+    margin: 0 2px;
+    font-size: 14px;
+  }
+}
+
+.dancingText {
+  transition: transform 0.3s ease-in-out;
+}
+
+.dancingText:hover {
+  animation: dance 0.5s infinite alternate;
+}
+
+@keyframes dance {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.proprietary {
+  cursor: pointer;
+  padding: 5px;
+  background-color: #333;
+  color: white;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
