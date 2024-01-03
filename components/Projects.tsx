@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
     {
       title: 'Kaddy Marketplace',
       description: 'Kaddy Marketplace is a simple solution for managing beverage discovery, ordering and payments.',
-      technologies: 'Tech Stack: Chakra, Zustand, Heroku, Vercel, Sentry, Honeycomb, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
+      technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, FullStory, Segment, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
       imageUrls: ['/images/kaddy-marketplace-1.png', '/images/kaddy-marketplace-2.png'],
       projectLink: 'https://www.kaddy.com.au/',
       proprietary: true
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
     {
       title: 'MedCenter',
       description: 'MedCenter is our Hospital Information System (HIS) for small hospitals. It is a comprehensive, integrated information system designed to manage all aspects of the hospital’s operations including medical, administrative, financial, and legal operations, procedures, and processes. Available modules:	ADT – Admission, Discharge Transfer, DocTool – computerized physician order entry, NurseTool – nurse charting and noting, Results Management, EClaims – PhilHealth benefit eligibility and claims',
-      technologies: 'Tech Stack: Yii2, Core PHP, JQuery, Nativescript-Angular + Firebase, ReactJS (Redux), Bootstrap, PostgreSQL',
+      technologies: 'Tech Stack: Yii2, Core PHP, JQuery, Nativescript-Angular + Firebase, ReactJS (Redux), Bootstrap, PostgreSQL, Robot Framework',
       imageUrls: ['/images/salusciens-1.png', '/images/salusciens-2.png'],
       projectLink: 'https://www.salusciens.com/',
       proprietary: true
