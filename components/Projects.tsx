@@ -76,6 +76,22 @@ const Projects: React.FC = () => {
       projectLink: 'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
       proprietary: false
     },
+    {
+      title: 'Linamon COVID Tracker API',
+      description: 'Basic API Service for Linamon COVID tracker system: https://github.com/zeejay09/linamon-covid-tracker.',
+      technologies: 'Tech Stack: Laravel, MySQL',
+      imageUrls: [],
+      projectLink: 'https://github.com/ketuvin/Linamon-COVID-tracker-API',
+      proprietary: false
+    },
+    {
+      title: 'RAID Simulation Applet',
+      description: 'This project is a UI simulation of the data storage virtualization technology that combines multiple physical disk drive components into one or more logical units for the purposes of data redundancy, performance improvement, or both. Specifically, it simulates  RAID levels 1 to 6 in its basic process.',
+      technologies: 'Tech Stack: Java, JavaFX',
+      imageUrls: ['/images/raid-gui-preview.jpg'],
+      projectLink: 'https://github.com/ketuvin/RAID-SIMULATION',
+      proprietary: false
+    }
   ], []);
 
   const projectsPerPage = 3;
