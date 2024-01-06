@@ -77,6 +77,14 @@ const Projects: React.FC = () => {
       proprietary: false
     },
     {
+      title: 'Basic Scientific Calculator App',
+      description: 'This is a simple scientific calculator web app. It features a dark and light mode toggle and supports basic mathematical and scientific functions.',
+      technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS, Zustand',
+      imageUrls: ['/images/calculator-1.png', '/images/calculator-2.png'],
+      projectLink: 'https://github.com/ketuvin/calculator-app',
+      proprietary: false
+    },
+    {
       title: 'Linamon COVID Tracker API',
       description: 'Basic API Service for Linamon COVID tracker system: https://github.com/zeejay09/linamon-covid-tracker.',
       technologies: 'Tech Stack: Laravel, MySQL',

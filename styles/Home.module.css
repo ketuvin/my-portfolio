@@ -179,9 +179,11 @@
 }
 
 .galleryImage {
-  flex: 0 0 33.333%;
+  flex: 0 0 32.88%;
   border-radius: 8px;
   overflow: hidden;
+  margin-left: 5px;
+  border: 2px solid #555;
 }
 
 .projectNav {
