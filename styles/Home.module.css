@@ -143,11 +143,11 @@
 }
 
 .active {
-  border-color: #555;
+  border-color: #EA580C;
 }
 
 .project:hover {
-  border-color: #555;
+  border-color: #EA580C;
 }
 
 .projectTitle {
@@ -207,7 +207,7 @@
 
 .prev:hover,
 .next:hover {
-  background-color: #555;
+  background-color: #EA580C;
 }
 
 /* Center the anchor tags horizontally */
