@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import ImageModal from './ImageModal';
 
 const Projects: React.FC = () => {
   const projects = useMemo(() => [
@@ -106,15 +107,38 @@ const Projects: React.FC = () => {
   const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   const [currentPage, setCurrentPage] = useState(0);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(-1);
+  const [selectedProjectImages, setSelectedProjectImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   const changePage = (page: number) => {
     setCurrentPage(page);
-    setCurrentProjectIndex(-1); // Reset the active project index when changing the page
+    setCurrentProjectIndex(-1);
+  };
+
+  const openImageModal = (images: string[], index: number) => {
+    setSelectedProjectImages(images);
+    setCurrentImageIndex(index);
+  };
+
+  const closeImageModal = () => {
+    setSelectedProjectImages([]);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % selectedProjectImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + selectedProjectImages.length) % selectedProjectImages.length);
+  };
+
+  const selectImage = (index: number) => {
+    setCurrentImageIndex(index);
   };
 
   const currentProjects = projects.slice(currentPage * projectsPerPage, (currentPage + 1) * projectsPerPage);
-
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(-1);
 
   const openProjectLink = (projectLink: string) => {
     window.open(projectLink, '_blank');
@@ -142,6 +166,11 @@ const Projects: React.FC = () => {
                       alt={`${project.title} - Image ${imageIndex + 1}`}
                       width={400}
                       height={300}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openImageModal(project.imageUrls, imageIndex)
+                      }}
+                      className={styles.clickableImage}
                     />
                   </div>
                 ))}
@@ -164,6 +193,16 @@ const Projects: React.FC = () => {
           Next Page &#10095;
         </a>
       </div>
+      {selectedProjectImages.length > 0 && (
+        <ImageModal
+          images={selectedProjectImages}
+          currentIndex={currentImageIndex}
+          onClose={closeImageModal}
+          onNext={nextImage}
+          onPrev={prevImage}
+          onSelect={selectImage}
+        />
+      )}
     </section>
   );
 };

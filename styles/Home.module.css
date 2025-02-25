@@ -330,6 +330,93 @@
   animation: blinkCursor 0.8s infinite;
 }
 
+.thumbnailContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin: 2px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.activeThumbnail {
+  border-color: #EA580C;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 80vh;
+  border: 2px solid #555;
+}
+
+.prevButton, .nextButton {
+  position: absolute;
+  transform: translateY(-50%);
+  color: #EA580C;
+  border: none;
+  padding: 5px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  @apply md:top-1/2 top-28;
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+.prevButton:hover, .nextButton:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+.clickableImage {
+  cursor: pointer;
+}
+
 @keyframes blinkCursor {
   0%, 100% {
     opacity: 1;
