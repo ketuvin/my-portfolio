@@ -6,6 +6,14 @@ import ImageModal from './ImageModal';
 const Projects: React.FC = () => {
   const projects = useMemo(() => [
     {
+      title: 'Systemair (incl. Frico, Menerga)',
+      description: 'Systemair is a global platform for HVAC (Heating, Ventilation, and Air Conditioning) solutions, providing high-quality products and systems for energy-efficient indoor climate control. The website serves as a hub for professionals, offering product catalogs, technical resources, and advanced tools for system planning and selection.',
+      technologies: 'NextJS, ReactJS, Tailwind CSS, Storyblok, Zustand, SASS, Redis, ElasticSearch, Algolia, MongoDB, CrowdIn, Google Workspace, Cursor',
+      imageUrls: ['/images/systemair-1.png', '/images/systemair-2.png', '/images/systemair-3.png', '/images/systemair-4.png'],
+      projectLink: 'https://www.systemair.com/',
+      proprietary: true
+    },
+    {
       title: 'Kaddy Marketplace',
       description: 'Kaddy Marketplace is a simple solution for managing beverage discovery, ordering and payments.',
       technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, Algolia, FullStory, Segment, Stripe, Zepto Payments, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
