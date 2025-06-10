@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     <div id="profile" className="px-8 py-12 mb-12 xl:mb-0 animate-fade-in">
       <div className="flex flex-col items-center justify-center gap-4">
         <Image
-          src={'/images/profile.png'}
+          src={'/images/Profile.png'}
           alt={`Profile`}
           width={125}
           height={125}
