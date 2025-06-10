@@ -27,5 +27,5 @@ export const useProjectsPerPage = () => {
     return () => window.removeEventListener('resize', updateProjectsPerPage);
   }, []);
 
-  return projectsPerPage > 1 ? projectsPerPage - 1 :  projectsPerPage;
+  return projectsPerPage > 1 ? projectsPerPage - 1 : projectsPerPage;
 }; 

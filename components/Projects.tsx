@@ -125,10 +125,18 @@ const Projects: React.FC = () => {
     const firstCard = document.querySelector('.project-card'); // Get the first card to measure its actual width
 
     if (container && firstCard) {
-      const cardWidth = (firstCard as HTMLElement).offsetWidth; // Dynamically get the width of a single card
-      
-      // Calculate scroll amount based on cards per page and actual card width/gap
-      const scrollAmount = cardWidth * projectsPerPage * page;
+      const cardWidth = (firstCard as HTMLElement).offsetWidth;
+      const gapX = 8; // Equivalent to Tailwind's gap-x-4
+
+      let scrollAmount = 0;
+      if (projectsPerPage === 1) {
+        // If only one project per page, for mobile, scroll one card width plus the gap
+        scrollAmount = (cardWidth + gapX) * page;
+      } else {
+        // For multiple projects per page, account for gaps between them
+        const totalPageWidth = (cardWidth * projectsPerPage) + (gapX * (projectsPerPage - 1));
+        scrollAmount = totalPageWidth * page;
+      }
       
       container.scrollTo({
         left: scrollAmount,
@@ -164,18 +172,16 @@ const Projects: React.FC = () => {
     window.open(projectLink, '_blank');
   };
 
-  console.log(projectsPerPage)
-
   return (
     <div id="projects" className="mt-5 xl:mt-0 animate-fade-in">
       <h2>Projects</h2>
       <div className="relative">
         <div className="overflow-x-auto scrollbar-hide projects-scroll-container">
-          <div className="flex pb-2 w-screen" style={{ scrollBehavior: 'smooth' }}>
+          <div className="flex pb-2 gap-x-2 overflow-visible" style={{ scrollBehavior: 'smooth' }}>
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`project-card w-[350px] flex-shrink-0 ${styles.project} ${index === currentProjectIndex ? styles.active : ''}`}
+                className={`project-card w-full p-2 md:max-w-[300px] flex-shrink-0 ${styles.project} ${index === currentProjectIndex ? styles.active : ''}`}
                 onClick={() => openProjectLink(project.projectLink)}
               >
                 {project.imageUrls && project.imageUrls.length > 0 ? (
@@ -210,14 +216,14 @@ const Projects: React.FC = () => {
                 {project.proprietary && (
                   <button className={styles.proprietary}>Proprietary Software &#128274;</button>
                 )}
-                <p className="text-md opacity-70 mb-3 text-left">{project.description}</p>
+                <p className="text-md opacity-70 mb-3 text-left break-words">{project.description}</p>
                 <p className="text-sm italic text-left">{project.technologies}</p>
               </div>
             ))}
           </div>
         </div>
         {/* Left Navigation Button */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-white to-transparent w-20 h-full flex items-center">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-white to-transparent w-14 h-full flex items-center">
           <button 
             onClick={() => scrollToPage(Math.max(0, currentPage - 1))}
             className="bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -227,7 +233,7 @@ const Projects: React.FC = () => {
           </button>
         </div>
         {/* Right Navigation Button */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-gradient-to-l from-white to-transparent w-20 h-full flex items-center justify-end">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-gradient-to-l from-white to-transparent w-14 h-full flex items-center justify-end">
           <button 
             onClick={() => scrollToPage(Math.min(totalPages - 1, currentPage + 1))}
             className="bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"

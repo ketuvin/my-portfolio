@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <Head>
         <title>My Portfolio</title>
       </Head>
-      <div className="container p-10 flex flex-col gap-4 min-h-max xl:grid xl:grid-cols-12 xl:grid-rows-[1fr]">
+      <div className="max-w-7xl xl:mx-auto p-4 xl:p-0 flex flex-col gap-4 min-h-max xl:grid xl:grid-cols-12 xl:grid-rows-[1fr]">
         <section className="xl:col-span-3 relative h-full">
           <Profile />
           <QuickLinks />
