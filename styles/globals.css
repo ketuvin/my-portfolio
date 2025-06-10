@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 
 body {
   @apply transition-all duration-300 ease-in-out; /* Apply a global transition for all elements */
@@ -14,7 +14,7 @@ body {
   align-items: center; /* Center content horizontally */
   justify-content: center; /* Center content vertically */
   min-height: 100vh; /* Ensure the entire viewport height is covered */
-  font-family: 'Nunito', sans-serif; /* Apply Bungee font */
+  font-family: 'Outfit', sans-serif;
 }
 
 header {
@@ -33,14 +33,16 @@ header > p {
   @apply text-3xl;
 }
 
-section > h2 {
-  @apply text-3xl mb-4;
-  text-align: center;
-  font-family: 'Bungee Spice', sans-serif; /* Apply Bungee font */
+div > h2 {
+  @apply text-3xl mb-4 font-bungee-spice text-left;
+}
+
+div#about, div#projects {
+  @apply px-8;
 }
 
 section {
-  @apply my-10 2xl:mx-96 lg:mx-52 mx-auto p-4 text-justify bg-white shadow-md rounded-md; /* Section style with shadow and rounded corners */
+  @apply text-justify bg-white border shadow-md rounded-2xl; /* Section style with shadow and rounded corners */
 }
 
 .project {
@@ -58,26 +60,4 @@ section {
 
 .animate-fade-in {
   animation: fade-in 0.5s ease-in-out; /* Adjust duration and easing as needed */
-}
-
-@media (max-width: 1024px) {
-  header {
-    padding: 10px;
-  }
-
-  footer {
-    padding: 10px;
-  }
-
-  header > h1 {
-    @apply text-3xl;
-  }
-  
-  header > p, section > h2 {
-    @apply text-xl;
-  }
-
-  section {
-    @apply m-4 p-4 bg-white shadow-md rounded-md; /* Section style with shadow and rounded corners */
-  }
 }

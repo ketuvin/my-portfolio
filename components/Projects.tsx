@@ -2,20 +2,22 @@ import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import ImageModal from './ImageModal';
+import { useProjectsPerPage } from '../hooks/useProjectsPerPage';
+import ProjectPlaceholder from './ProjectPlaceholder';
 
 const Projects: React.FC = () => {
   const projects = useMemo(() => [
     {
       title: 'Systemair (incl. Frico, Menerga)',
-      description: 'Systemair is a global platform for HVAC (Heating, Ventilation, and Air Conditioning) solutions, providing high-quality products and systems for energy-efficient indoor climate control. The website serves as a hub for professionals, offering product catalogs, technical resources, and advanced tools for system planning and selection.',
-      technologies: 'NextJS, ReactJS, Tailwind CSS, Storyblok, Zustand, SASS, Redis, ElasticSearch, Algolia, MongoDB, CrowdIn, Google Workspace, Cursor',
+      description: 'A global leader in sustainable HVAC solutions, offering a comprehensive portfolio including air handling units, fans, air conditioning, fire safety systems, and air distribution products. The platform serves as a central hub for product selection, technical documentation, and system configuration tools.',
+      technologies: 'Tech Stack: NextJS, ReactJS, Tailwind CSS, Storyblok, Zustand, SASS, Redis, ElasticSearch, Algolia, MongoDB, CrowdIn, Google Workspace, Cursor',
       imageUrls: ['/images/systemair-1.png', '/images/systemair-2.png', '/images/systemair-3.png', '/images/systemair-4.png'],
       projectLink: 'https://www.systemair.com/',
       proprietary: true
     },
     {
       title: 'Kaddy Marketplace',
-      description: 'Kaddy Marketplace is a simple solution for managing beverage discovery, ordering and payments.',
+      description: 'A beverage discovery and ordering platform with integrated payment solutions.',
       technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, Algolia, FullStory, Segment, Stripe, Zepto Payments, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker',
       imageUrls: ['/images/kaddy-marketplace-1.png', '/images/kaddy-marketplace-2.png'],
       projectLink: 'https://www.kaddy.com.au/',
@@ -23,7 +25,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'Kaddy Connect',
-      description: 'Kaddy Connect is an inventory, sales, and shipment management system designed for warehouses to manage and track their products and orders.',
+      description: 'An inventory and shipment management system for warehouses to track products and orders.',
       technologies: 'Tech Stack: NextJS (Redux), SASS, Laravel, MySQL, AWS (S3, EC2, Elastic Beanstalk, SQS, Amplify, Code Pipeline), CartonCloud, Xero, Auspost',
       imageUrls: ['/images/kaddy-connect-1.png', '/images/kaddy-connect-2.png'],
       projectLink: 'https://www.kaddy.com.au/',
@@ -31,7 +33,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'DHSUD Housing Loan App',
-      description: 'The goal of DHSUD is to prioritize individuals who are in need and qualified for housing. The government aims to accomplish 1M houses every year and with the help of the webapp we would be able to speed up the process of reservation of houses for the contractors. It provides the platform for the borrowers to select the project of the contractor, reserve the house they plan to buy and provide them the payment schedule that they need to do monthly. It does KYC for the borrower and make payment collections via Gcash, Debit Card and etc. monthly.',
+      description: 'A government platform for housing loan applications, house reservations, and payment scheduling.',
       technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCash, Stripe',
       imageUrls: ['/images/dhsud-1.png', '/images/dhsud-2.png', '/images/dhsud-3.png'],
       projectLink: 'https://www.finnoven.ph/',
@@ -39,7 +41,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'ICAO SMS TOOL',
-      description: 'An accident reporting system for the aviation Industry.',
+      description: 'An accident reporting system for the aviation industry.',
       technologies: 'Tech Stack: ReactJS (Redux), Tailwind CSS, Laravel, MySQL, Swagger',
       imageUrls: ['/images/icao.png'],
       projectLink: 'https://www.infina.net/',
@@ -47,7 +49,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'MedCenter',
-      description: 'MedCenter is our Hospital Information System (HIS) for small hospitals. It is a comprehensive, integrated information system designed to manage all aspects of the hospital’s operations including medical, administrative, financial, and legal operations, procedures, and processes. Available modules:	ADT – Admission, Discharge Transfer, DocTool – computerized physician order entry, NurseTool – nurse charting and noting, Results Management, EClaims – PhilHealth benefit eligibility and claims',
+      description: 'A comprehensive Hospital Information System (HIS) for small hospitals with modules for patient management, physician orders, and lab results.',
       technologies: 'Tech Stack: Yii2, Core PHP, JQuery, Nativescript-Angular + Firebase, ReactJS (Redux), Bootstrap, PostgreSQL, Robot Framework',
       imageUrls: ['/images/salusciens-1.png', '/images/salusciens-2.png'],
       projectLink: 'https://www.salusciens.com/',
@@ -55,7 +57,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'MedBook',
-      description: 'MedBook, formerly MedRemind, is a personal healthcare network that gives you access to your doctors, prescriptions, diagnostic test results, medications, and much more at your fingertips.',
+      description: 'A personal healthcare network providing access to medical records, prescriptions, and doctor communications.',
       technologies: 'Tech Stack: Nativescript - Angular, Firebase',
       imageUrls: [],
       projectLink: 'https://www.salusciens.com/',
@@ -63,7 +65,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'MedLab',
-      description: 'MedLab is a laboratory information system that is designed to improve access to quality diagnostic testing and provide accurate, timely information for patient care, public health planning and policy decisions. This consist of five modules namely: user management, login and authentication, examination request, results management, and reports module.',
+      description: 'A laboratory information system for managing diagnostic testing, results, and reporting.',
       technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, MySQL',
       imageUrls: [],
       projectLink: 'https://www.salusciens.com/',
@@ -71,7 +73,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'Farmako',
-      description: 'Farmako is a pharmacy inventory system that provides available stock items for the consumer/patient’s needs. The main goal of this module is to show the different medicines available with its details like the medicine’s generic and brand name, number of dosage, quantity, category and manufacturer. The user can track, withdraw, deposit, void medicines and generate report via pdf based from the time interval set by the user. This project is an exercise to test my skills for them to evaluate if I am ready to be part of an official project - the Laboratory Information System (LIS).',
+      description: 'A pharmacy inventory system for tracking medicines, managing stock, and generating reports.',
       technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, PostgreSQL',
       imageUrls: ['/images/farmako.png'],
       projectLink: 'https://github.com/ketuvin/Pharmacy-Inventory-System',
@@ -79,7 +81,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'DiaPlan',
-      description: 'DiaPlan is an expert system that serves as a tool for the patient who has type-2 diabetes in determining the proper daily menu of meals. This expert system intends to provide alternative approaches to meal management in the absence of the nutritionist/dietitian expert.',
+      description: 'An expert system for generating daily meal plans for type-2 diabetic patients.',
       technologies: 'Tech Stack: Flex Expert System, HTML, CSS',
       imageUrls: ['/images/diaplan.png'],
       projectLink: 'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
@@ -87,7 +89,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'Basic Scientific Calculator App',
-      description: 'This is a simple scientific calculator web app. It features a dark and light mode toggle and supports basic mathematical and scientific functions.',
+      description: 'A scientific calculator web app with dark/light mode and mathematical functions.',
       technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS, Zustand',
       imageUrls: ['/images/calculator-1.png', '/images/calculator-2.png'],
       projectLink: 'https://github.com/ketuvin/calculator-app',
@@ -103,7 +105,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'RAID Simulation Applet',
-      description: 'This project is a UI simulation of the data storage virtualization technology that combines multiple physical disk drive components into one or more logical units for the purposes of data redundancy, performance improvement, or both. Specifically, it simulates  RAID levels 1 to 6 in its basic process.',
+      description: 'A UI simulation of RAID storage virtualization technology, demonstrating RAID levels 1-6.',
       technologies: 'Tech Stack: Java, JavaFX',
       imageUrls: ['/images/raid-gui-preview.jpg'],
       projectLink: 'https://github.com/ketuvin/RAID-SIMULATION',
@@ -111,17 +113,29 @@ const Projects: React.FC = () => {
     }
   ], []);
 
-  const projectsPerPage = 3;
+  const projectsPerPage = useProjectsPerPage();
   const totalPages = Math.ceil(projects.length / projectsPerPage);
-
   const [currentPage, setCurrentPage] = useState(0);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(-1);
   const [selectedProjectImages, setSelectedProjectImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
-  const changePage = (page: number) => {
-    setCurrentPage(page);
-    setCurrentProjectIndex(-1);
+  const scrollToPage = (page: number) => {
+    const container = document.querySelector('.projects-scroll-container');
+    const firstCard = document.querySelector('.project-card'); // Get the first card to measure its actual width
+
+    if (container && firstCard) {
+      const cardWidth = (firstCard as HTMLElement).offsetWidth; // Dynamically get the width of a single card
+      
+      // Calculate scroll amount based on cards per page and actual card width/gap
+      const scrollAmount = cardWidth * projectsPerPage * page;
+      
+      container.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+      setCurrentPage(page);
+    }
   };
 
   const openImageModal = (images: string[], index: number) => {
@@ -146,61 +160,96 @@ const Projects: React.FC = () => {
     setCurrentImageIndex(index);
   };
 
-  const currentProjects = projects.slice(currentPage * projectsPerPage, (currentPage + 1) * projectsPerPage);
-
   const openProjectLink = (projectLink: string) => {
     window.open(projectLink, '_blank');
   };
 
+  console.log(projectsPerPage)
+
   return (
-    <section id="projects" className={`opacity-0 animate-fade-in`}>
+    <div id="projects" className="mt-5 xl:mt-0 animate-fade-in">
       <h2>Projects</h2>
-      <div className={styles.projectSlider}>
-        {currentProjects.map((project, index) => (
-          <div
-            key={index}
-            className={`${styles.project} ${index === currentProjectIndex ? styles.active : ''}`}
-            onClick={() => openProjectLink(project.projectLink)}
-          >
-            <h3 className={styles.projectTitle}>{project.title}</h3>
-            <p className={styles.projectDescription}>{project.description}</p>
-            <p className={styles.projectTech}>{project.technologies}</p>
-            {project.imageUrls.length > 0 && (
-              <div className={styles.imageGallery}>
-                {project.imageUrls.map((imageUrl, imageIndex) => (
-                  <div key={imageIndex} className={styles.galleryImage}>
+      <div className="relative">
+        <div className="overflow-x-auto scrollbar-hide projects-scroll-container">
+          <div className="flex pb-2 w-screen" style={{ scrollBehavior: 'smooth' }}>
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className={`project-card w-[350px] flex-shrink-0 ${styles.project} ${index === currentProjectIndex ? styles.active : ''}`}
+                onClick={() => openProjectLink(project.projectLink)}
+              >
+                {project.imageUrls && project.imageUrls.length > 0 ? (
+                  <div className="relative overflow-hidden rounded-lg border mb-4 h-[165px]">
                     <Image
-                      src={imageUrl}
-                      alt={`${project.title} - Image ${imageIndex + 1}`}
-                      width={400}
-                      height={300}
+                      src={project.imageUrls[0]}
+                      alt={`${project.title} - Main Image`}
+                      width={350}
+                      height={165}
                       onClick={(e) => {
                         e.stopPropagation();
-                        openImageModal(project.imageUrls, imageIndex)
+                        openImageModal(project.imageUrls, 0);
                       }}
-                      className={styles.clickableImage}
+                      className="w-full h-full object-cover cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110"
                     />
+                    {project.imageUrls.length > 1 && (
+                      <div 
+                        className="absolute bottom-4 right-4 bg-black bg-opacity-75 text-white px-3 py-1 rounded-full cursor-pointer z-10"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openImageModal(project.imageUrls, 0);
+                        }}
+                      >
+                        +{project.imageUrls.length - 1} more
+                      </div>
+                    )}
                   </div>
-                ))}
+                ) : (
+                  <ProjectPlaceholder />
+                )}
+                <h3 className="text-lg mb-2 text-wrap whitespace-normal">{project.title}</h3>
+                {project.proprietary && (
+                  <button className={styles.proprietary}>Proprietary Software &#128274;</button>
+                )}
+                <p className="text-md opacity-70 mb-3 text-left">{project.description}</p>
+                <p className="text-sm italic text-left">{project.technologies}</p>
               </div>
-            )}
-            {
-              project.proprietary && (
-                <button className={styles.proprietary}>Proprietary Software &#128274;</button>
-              )
-            }
+            ))}
           </div>
+        </div>
+        {/* Left Navigation Button */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-gradient-to-r from-white to-transparent w-20 h-full flex items-center">
+          <button 
+            onClick={() => scrollToPage(Math.max(0, currentPage - 1))}
+            className="bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={currentPage === 0}
+          >
+            &#10094;
+          </button>
+        </div>
+        {/* Right Navigation Button */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-gradient-to-l from-white to-transparent w-20 h-full flex items-center justify-end">
+          <button 
+            onClick={() => scrollToPage(Math.min(totalPages - 1, currentPage + 1))}
+            className="bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={currentPage === totalPages - 1}
+          >
+            &#10095;
+          </button>
+        </div>
+      </div>
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollToPage(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              currentPage === index ? 'bg-orange-600 w-4' : 'bg-gray-300'
+            }`}
+          />
         ))}
       </div>
-      <div className={styles.projectNav}>
-      <p>Note: Some proprietary projects will redirect to company website.</p>
-        <a className={styles.prev} onClick={() => changePage((currentPage - 1 + totalPages) % totalPages)}>
-          &#10094; Prev Page
-        </a>
-        <a className={styles.next} onClick={() => changePage((currentPage + 1) % totalPages)}>
-          Next Page &#10095;
-        </a>
-      </div>
+      <p className="text-center mt-4 mb-8">Note: Some proprietary projects will redirect to company website.</p>
       {selectedProjectImages.length > 0 && (
         <ImageModal
           images={selectedProjectImages}
@@ -211,7 +260,7 @@ const Projects: React.FC = () => {
           onSelect={selectImage}
         />
       )}
-    </section>
+    </div>
   );
 };
 
