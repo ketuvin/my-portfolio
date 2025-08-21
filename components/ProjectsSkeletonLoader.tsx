@@ -5,7 +5,7 @@ const ProjectsSkeletonLoader: React.FC = ()  => {
     <div className="px-8 mt-5 animate-pulse flex flex-col">
       <div className="h-9 w-36 bg-gray-300 rounded mb-6"></div>
       <div className="flex pb-2 gap-x-2 mb-4">
-        {Array.from({ length: 3 }).map((skill, idx) => (
+        {Array.from({ length: 4 }).map((skill, idx) => (
           <div key={idx} className="h-[587px] w-[300px] rounded-lg bg-gray-300"></div>
         ))}
       </div>
