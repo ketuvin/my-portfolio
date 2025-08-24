@@ -98,7 +98,7 @@ export const projects = [
   {
     title: 'Basic ToDo List Management System',
     description: 'A basic To-Do list management system, allowing users to view, create, update, and delete tasks',
-    technologies: 'Tech Stack: NuxtJS, Typescript, Tailwind CSS, Laravel, GraphQL',
+    technologies: 'Tech Stack: NuxtJS, Typescript, Tailwind CSS, Laravel, GraphQL, Docker',
     imageUrls: ['/images/todo-list-1.png', '/images/todo-list-2.png'],
     projectLink: 'https://github.com/ketuvin/todolist-frontend',
     proprietary: false
