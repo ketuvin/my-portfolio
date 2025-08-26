@@ -10,7 +10,7 @@ export const projects = [
   {
     title: 'X Plus Website',
     description: 'X Plus company website',
-    technologies: 'Tech Stack: ReactJS, Tailwind CSS, Wordpress - Gutenberg blocks',
+    technologies: 'Tech Stack: ReactJS, Tailwind CSS, Wordpress - Gutenberg blocks, Cursor',
     imageUrls: ['/images/x-plus-1.png', '/images/x-plus-2.png'],
     projectLink: 'https://meetxplus.com',
     proprietary: true
