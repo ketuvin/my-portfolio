@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaDownload } from 'react-icons/fa';
 
-const RESUME_URL = 'https://drive.google.com/file/d/19pcX20DFzYW6IAC3PEa1rR8y-OBB0sLY/view?usp=sharing';
+const RESUME_URL = 'https://drive.google.com/file/d/16m8_pxgO_zVMU1fW4rTQzdAy_RMj4CPb/view?usp=sharing';
 
 const DownloadResumeFAB: React.FC = () => {
   return (
