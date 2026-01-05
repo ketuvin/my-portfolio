@@ -11,7 +11,7 @@ const ProfileSkeletonLoader: React.FC = () => {
         <div className="my-4 flex flex-col gap-y-6 w-full">
           <div className="flex items-center justify-start gap-x-4 md:justify-between">
             <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-              <div className="w-5 h-5 bg-gray-300 rounded"></div>
+              <div className="w-6 h-6 bg-gray-300 rounded"></div>
             </div>
             <div className="w-full">
               <div className="h-3 w-16 bg-gray-300 rounded mb-2"></div>
@@ -20,7 +20,7 @@ const ProfileSkeletonLoader: React.FC = () => {
           </div>
           <div className="flex items-center justify-start gap-x-4 md:justify-between">
             <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-              <div className="w-5 h-5 bg-gray-300 rounded"></div>
+              <div className="w-6 h-6 bg-gray-300 rounded"></div>
             </div>
             <div className="w-full">
               <div className="h-3 w-20 bg-gray-300 rounded mb-2"></div>
@@ -39,7 +39,7 @@ const ProfileSkeletonLoader: React.FC = () => {
           </div>
           <div className="flex items-center justify-start gap-x-4 md:justify-between">
             <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-              <div className="w-5 h-5 bg-gray-300 rounded"></div>
+              <div className="w-6 h-6 bg-gray-300 rounded"></div>
             </div>
             <div className="w-full">
               <div className="h-3 w-24 bg-gray-300 rounded mb-2"></div>
