@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import Profile from '../components/Profile';
 import Navbar from '../components/Navbar';
 import QuickLinks from '../components/QuickLinks';
 import DownloadResumeFAB from '../components/DownloadResumeFAB';
 import AboutSkeletonLoader from '../components/AboutSkeletonLoader';
 import ProjectsSkeletonLoader from '../components/ProjectsSkeletonLoader';
+import ProfileSkeletonLoader from '../components/ProfileSkeletonLoader';
+
+const Profile = dynamic(() => import('../components/Profile'), {
+  loading: () => <ProfileSkeletonLoader />,
+  ssr: false,
+});
 
 const About = dynamic(() => import('../components/About'), {
   loading: () => <AboutSkeletonLoader />,
