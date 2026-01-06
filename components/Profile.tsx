@@ -7,13 +7,14 @@ import { faCheckCircle, faEnvelope, faMapPin, faPhone } from '@fortawesome/free-
 const Profile: React.FC = () => {
   return (
     <div id="profile" className="px-8 py-12 mb-12 xl:mb-0 animate-fade-in">
-      <div className="flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 w-full h-full">
         <Image
-          src={'/images/Profile2.jpg'}
+          src={'/images/Profile2.png'}
           alt={`Profile`}
           width={125}
           height={125}
-          className="shadow-md rounded-2xl border w-fit"
+          quality={100}
+          className="shadow-md w-fit rounded-2xl border"
         />
         <h2 className='text-2xl text-center font-bungee-spice'>Kevin Fuentes</h2>
         <p className='bg-gray-700 p-2 rounded-xl text-white text-sm mb-2'>Full Stack Developer</p>
