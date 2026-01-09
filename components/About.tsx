@@ -46,9 +46,23 @@ const About = () => {
         <h3 className="font-bold text-lg mb-2">Skills</h3>
         <div className="flex flex-wrap gap-3">
           {skills.map((skill, idx) => (
-            <span key={idx} className="flex items-center gap-2 bg-gray-100 px-3 py-1 rounded-full font-semibold text-gray-700 shadow-sm">
-              {skill.icon} {skill.name}
-            </span>
+            <div
+              key={idx}
+              className="group relative bg-gray-100 rounded-full font-semibold text-gray-700 shadow-sm overflow-hidden cursor-pointer transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 w-[60px] h-[60px] min-w-[60px] 2xl:w-[70px] 2xl:h-[70px] 2xl:min-w-[70px]"
+            >
+              {/* Icon Layer */}
+              <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 ease-in-out group-hover:-translate-x-full bg-gray-100">
+                <div className="text-3xl flex items-center justify-center w-full h-full">
+                  {skill.icon}
+                </div>
+              </div>
+              
+              {/* Rating Layer */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-full p-2">
+                <div className="text-lg 2xl:text-xl font-bold leading-tight">{skill.rating}/10</div>
+                <div className="text-[8px] 2xl:text-[10px] text-center leading-tight mt-0.5 opacity-95 font-medium px-1">{skill.name}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

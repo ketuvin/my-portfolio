@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       <Head>
         <title>Kevin Fuentes - Portfolio Website</title>
       </Head>
-      <div className="max-w-full xl:mx-auto p-4 xl:p-0 flex flex-col gap-4 min-h-max xl:grid xl:grid-cols-12 xl:grid-rows-[1fr]">
+      <div className="max-w-full xl:mx-auto p-4 xl:px-0 flex flex-col gap-4 min-h-max xl:grid xl:grid-cols-12 xl:grid-rows-[1fr]">
         <section className="xl:col-span-3 relative h-full">
           <Profile />
           <QuickLinks />
