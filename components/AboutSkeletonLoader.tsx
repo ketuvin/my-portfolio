@@ -9,8 +9,8 @@ const AboutSkeletonLoader: React.FC = ()  => {
       <div className="h-16 w-56 bg-gray-300 rounded mb-4 flex self-center"></div>
       <div className="h-6 w-16 bg-gray-300 rounded mb-2"></div>
       <div className="flex flex-wrap gap-3 mb-8">
-        {Array.from({ length: 55 }).map((skill, idx) => (
-          <div key={idx} className="flex items-center h-8 w-24 gap-2 bg-gray-300 px-3 py-1 rounded-full font-semibold text-gray-700 shadow-sm"></div>
+        {Array.from({ length: 58 }).map((skill, idx) => (
+          <div key={idx} className="w-[60px] h-[60px] 2xl:w-[70px] 2xl:h-[70px] min-w-[60px] 2xl:min-w-[70px] bg-gray-300 rounded-full shadow-sm"></div>
         ))}
       </div>
       <div className="h-7 w-32 bg-gray-300 rounded mb-4"></div>
