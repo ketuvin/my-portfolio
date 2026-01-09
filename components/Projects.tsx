@@ -4,8 +4,8 @@ import styles from '../styles/Home.module.css';
 import ImageModal from './ImageModal';
 import { useProjectsPerPage } from '../hooks/useProjectsPerPage';
 import ProjectPlaceholder from './ProjectPlaceholder';
-import { projects } from '../lib/projects';
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { projects, ProjectStatus } from '../lib/projects';
+import { FaExternalLinkAlt, FaCircle } from "react-icons/fa";
 
 const Projects: React.FC = () => {
   const projectsPerPage = useProjectsPerPage();
@@ -56,8 +56,46 @@ const Projects: React.FC = () => {
     setCurrentImageIndex(index);
   };
 
-  const openProjectLink = (projectLink: string) => {
-    window.open(projectLink, '_blank');
+  const openProjectLink = (projectLink: string, status: ProjectStatus) => {
+    // Only open link if status is 'live' or 'mvp'
+    if (status === 'live' || status === 'mvp') {
+      window.open(projectLink, '_blank');
+    }
+  };
+
+  const getStatusConfig = (status: ProjectStatus) => {
+    switch (status) {
+      case 'live':
+        return {
+          label: 'Live',
+          className: 'bg-green-500 text-white',
+          icon: '●'
+        };
+      case 'down':
+        return {
+          label: 'Down',
+          className: 'bg-red-500 text-white',
+          icon: '●'
+        };
+      case 'mvp':
+        return {
+          label: 'MVP',
+          className: 'bg-yellow-500 text-white',
+          icon: '●'
+        };
+      case 'not-live':
+        return {
+          label: 'Not Live',
+          className: 'bg-gray-500 text-white',
+          icon: '●'
+        };
+      default:
+        return {
+          label: 'Unknown',
+          className: 'bg-gray-400 text-white',
+          icon: '●'
+        };
+    }
   };
 
   return (
@@ -69,8 +107,8 @@ const Projects: React.FC = () => {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`project-card w-full p-2 md:max-w-[300px] flex-shrink-0 ${styles.project} ${index === currentProjectIndex ? styles.active : ''}`}
-                onClick={() => openProjectLink(project.projectLink)}
+                className={`project-card w-full p-2 md:max-w-[300px] flex-shrink-0 ${styles.project} ${index === currentProjectIndex ? styles.active : ''} ${project.status !== 'live' && project.status !== 'mvp' ? 'cursor-default' : 'cursor-pointer'}`}
+                onClick={() => openProjectLink(project.projectLink, project.status)}
               >
                 {project.imageUrls && project.imageUrls.length > 0 ? (
                   <div className="relative overflow-hidden rounded-lg border mb-4 h-[165px]">
@@ -96,18 +134,36 @@ const Projects: React.FC = () => {
                         +{project.imageUrls.length - 1} more
                       </div>
                     )}
+                    {/* Status Badge */}
+                    <div className="absolute top-2 right-2 z-10">
+                      <span className={`${getStatusConfig(project.status).className} px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md`}>
+                        <span className="text-[8px]">{getStatusConfig(project.status).icon}</span>
+                        {getStatusConfig(project.status).label}
+                      </span>
+                    </div>
                   </div>
                 ) : (
-                  <ProjectPlaceholder />
+                  <div className="relative mb-4 h-[165px]">
+                    <ProjectPlaceholder />
+                    {/* Status Badge for projects without images */}
+                    <div className="absolute top-2 right-2 z-10">
+                      <span className={`${getStatusConfig(project.status).className} px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md`}>
+                        <span className="text-[8px]">{getStatusConfig(project.status).icon}</span>
+                        {getStatusConfig(project.status).label}
+                      </span>
+                    </div>
+                  </div>
                 )}
                 <h3 className="text-lg text-wrap whitespace-normal">
                   {project.title}
-                  <button onClick={(e) => {
-                    e.stopPropagation();
-                    openProjectLink(project.projectLink)
-                  }}>
-                    <FaExternalLinkAlt className="text-base ml-1 text-blue-600 hover:text-orange-600" />
-                  </button>
+                  {(project.status === 'live' || project.status === 'mvp') && (
+                    <button onClick={(e) => {
+                      e.stopPropagation();
+                      openProjectLink(project.projectLink, project.status);
+                    }}>
+                      <FaExternalLinkAlt className="text-base ml-1 text-blue-600 hover:text-orange-600" />
+                    </button>
+                  )}
                 </h3>
                 {project.proprietary && (
                   <button className={styles.proprietary}>Proprietary Software &#128274;</button>

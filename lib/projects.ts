@@ -1,11 +1,24 @@
-export const projects = [
+export type ProjectStatus = 'live' | 'down' | 'mvp' | 'not-live';
+
+export type Project = {
+  title: string;
+  description: string;
+  technologies: string;
+  imageUrls: string[];
+  projectLink: string;
+  proprietary: boolean;
+  status: ProjectStatus;
+};
+
+export const projects: Project[] = [
   {
     title: 'My Portfolio Website',
     description: 'A minimalist website for my portfolio',
     technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS',
     imageUrls: ['/images/my-portfolio.png'],
     projectLink: 'https://kevin-fuentes.vercel.app',
-    proprietary: false
+    proprietary: false,
+    status: 'live'
   },
   {
     title: 'X Plus Website',
@@ -13,7 +26,8 @@ export const projects = [
     technologies: 'Tech Stack: ReactJS, Tailwind CSS, Wordpress - Gutenberg blocks, Cursor',
     imageUrls: ['/images/x-plus-1.png', '/images/x-plus-2.png'],
     projectLink: 'https://meetxplus.com',
-    proprietary: true
+    proprietary: true,
+    status: 'live'
   },
   {
     title: 'Systemair (incl. Frico, Menerga)',
@@ -21,7 +35,8 @@ export const projects = [
     technologies: 'Tech Stack: NextJS, ReactJS, Tailwind CSS, Storyblok, Zustand, SASS, Redis, ElasticSearch, Algolia, MongoDB, CrowdIn, Google Workspace, Cursor',
     imageUrls: ['/images/systemair-1.png', '/images/systemair-2.png', '/images/systemair-3.png', '/images/systemair-4.png'],
     projectLink: 'https://www.systemair.com/',
-    proprietary: true
+    proprietary: true,
+    status: 'live'
   },
   {
     title: 'Kaddy Marketplace',
@@ -29,7 +44,8 @@ export const projects = [
     technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, Algolia, FullStory, Segment, Stripe, Zepto Payments, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker, Playwright',
     imageUrls: ['/images/kaddy-marketplace-1.png', '/images/kaddy-marketplace-2.png'],
     projectLink: 'https://www.kaddy.com.au/',
-    proprietary: true
+    proprietary: true,
+    status: 'down'
   },
   {
     title: 'Kaddy Connect',
@@ -37,7 +53,8 @@ export const projects = [
     technologies: 'Tech Stack: NextJS (Redux), SASS, Laravel, MySQL, AWS (S3, EC2, Elastic Beanstalk, SQS, Amplify, Code Pipeline), CartonCloud, Xero, Auspost',
     imageUrls: ['/images/kaddy-connect-1.png', '/images/kaddy-connect-2.png'],
     projectLink: 'https://www.kaddy.com.au/',
-    proprietary: true
+    proprietary: true,
+    status: 'down'
   },
   {
     title: 'DHSUD Housing Loan App',
@@ -45,7 +62,8 @@ export const projects = [
     technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCash, Stripe',
     imageUrls: ['/images/dhsud-1.png', '/images/dhsud-2.png', '/images/dhsud-3.png'],
     projectLink: 'https://www.finnoven.ph/',
-    proprietary: true
+    proprietary: true,
+    status: 'mvp'
   },
   {
     title: 'ICAO SMS TOOL',
@@ -53,7 +71,8 @@ export const projects = [
     technologies: 'Tech Stack: ReactJS (Redux), Tailwind CSS, Laravel, MySQL, Swagger',
     imageUrls: ['/images/icao.png'],
     projectLink: 'https://www.infina.net/',
-    proprietary: true
+    proprietary: true,
+    status: 'mvp'
   },
   {
     title: 'MedCenter',
@@ -61,7 +80,8 @@ export const projects = [
     technologies: 'Tech Stack: Yii2, Core PHP, JQuery, ReactJS (Redux), Bootstrap, PostgreSQL, Robot Framework',
     imageUrls: ['/images/salusciens-1.png', '/images/salusciens-2.png'],
     projectLink: 'https://www.salusciens.com/',
-    proprietary: true
+    proprietary: true,
+    status: 'live'
   },
   {
     title: 'MedBook',
@@ -69,7 +89,8 @@ export const projects = [
     technologies: 'Tech Stack: Nativescript - Angular, Firebase',
     imageUrls: [],
     projectLink: 'https://www.salusciens.com/',
-    proprietary: true
+    proprietary: true,
+    status: 'live'
   },
   {
     title: 'MedLab',
@@ -77,7 +98,8 @@ export const projects = [
     technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, MySQL',
     imageUrls: [],
     projectLink: 'https://www.salusciens.com/',
-    proprietary: true
+    proprietary: true,
+    status: 'live'
   },
   {
     title: 'Farmako',
@@ -85,7 +107,8 @@ export const projects = [
     technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, PostgreSQL',
     imageUrls: ['/images/farmako.png'],
     projectLink: 'https://github.com/ketuvin/Pharmacy-Inventory-System',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   },
   {
     title: 'DiaPlan',
@@ -93,7 +116,8 @@ export const projects = [
     technologies: 'Tech Stack: Flex Expert System, HTML, CSS',
     imageUrls: ['/images/diaplan.png'],
     projectLink: 'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   },
   {
     title: 'Basic ToDo List Management System',
@@ -101,7 +125,8 @@ export const projects = [
     technologies: 'Tech Stack: NuxtJS, Typescript, Tailwind CSS, Laravel, GraphQL, Docker',
     imageUrls: ['/images/todo-list-1.png', '/images/todo-list-2.png'],
     projectLink: 'https://github.com/ketuvin/todolist-frontend',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   },
   {
     title: 'Basic Scientific Calculator App',
@@ -109,7 +134,8 @@ export const projects = [
     technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS, Zustand',
     imageUrls: ['/images/calculator-1.png', '/images/calculator-2.png'],
     projectLink: 'https://github.com/ketuvin/calculator-app',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   },
   {
     title: 'Linamon COVID Tracker API',
@@ -117,7 +143,8 @@ export const projects = [
     technologies: 'Tech Stack: Laravel, MySQL, Swagger',
     imageUrls: [],
     projectLink: 'https://github.com/ketuvin/Linamon-COVID-tracker-API',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   },
   {
     title: 'RAID Simulation Applet',
@@ -125,6 +152,7 @@ export const projects = [
     technologies: 'Tech Stack: Java, JavaFX',
     imageUrls: ['/images/raid-gui-preview.jpg'],
     projectLink: 'https://github.com/ketuvin/RAID-SIMULATION',
-    proprietary: false
+    proprietary: false,
+    status: 'not-live'
   }
 ];
