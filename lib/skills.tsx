@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaDocker, FaAws, FaWordpress, FaBootstrap, FaSass, FaPhp } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiStoryblok, SiChakraui, SiApollographql, SiGo, SiPhp, SiYii, SiJquery, SiRedux, SiVercel, SiHeroku, SiFirebase, SiPostgresql, SiMysql, SiMongodb, SiRedis, SiElasticsearch, SiAlgolia, SiSentry, SiSwagger, SiBitbucket, SiGithub, SiJira, SiTrello, SiGoogle, SiShopify, SiNativescript, SiCrowdin, SiNotion, SiFilezilla, SiPayloadcms, SiSupabase, SiRobotframework } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiStoryblok, SiChakraui, SiApollographql, SiGo, SiPhp, SiYii, SiJquery, SiRedux, SiVercel, SiHeroku, SiFirebase, SiPostgresql, SiMysql, SiMongodb, SiRedis, SiElasticsearch, SiAlgolia, SiSentry, SiSwagger, SiBitbucket, SiGithub, SiJira, SiTrello, SiGoogle, SiShopify, SiNativescript, SiCrowdin, SiNotion, SiFilezilla, SiPayloadcms, SiSupabase, SiRobotframework, SiPrisma } from 'react-icons/si';
 
 type Skill = { name: string; icon: ReactNode; rating: number };
 
@@ -45,7 +45,8 @@ export const skills: Skill[] = [
   { name: 'MySQL', icon: <SiMysql className="text-blue-800" />, rating: 8 },
   { name: 'SQL Server', icon: <span className="text-red-600 font-bold">🗄️</span>, rating: 5 },
   { name: 'MongoDB', icon: <SiMongodb className="text-green-600" />, rating: 7 },
-  { name: 'Supabase', icon: <SiSupabase className="text-blue-600" />, rating: 7 },
+  { name: 'Supabase', icon: <SiSupabase className="text-emerald-400" />, rating: 6 },
+  { name: 'Prisma', icon: <SiPrisma className="text-black" />, rating: 6 },
   { name: 'Redis', icon: <SiRedis className="text-red-600" />, rating: 6 },
   { name: 'ElasticSearch', icon: <SiElasticsearch className="text-green-700" />, rating: 5 },
   { name: 'Algolia', icon: <SiAlgolia className="text-blue-600" />, rating: 5 },
