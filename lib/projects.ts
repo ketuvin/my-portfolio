@@ -12,6 +12,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Bax Mortgage Website',
+    description: 'Rebuild of Bax Mortgage Group Inc.’s website from WordPress to a modern Payload CMS + Next.js app. Multi-tenant CMS with role-based access and tenant-specific content. Includes cross-page block sync, a custom design system, and content migration from the previous site.',
+    technologies: 'Tech Stack: NextJS, ReactJS, Typescript, Tailwind CSS, Payload CMS, Radix UI (shadcn/ui), NeonDB, Vercel, Vercel Blob, Framer Motion, Cursor',
+    imageUrls: ['/images/baxmortgage-1.png', '/images/baxmortgage-2.png', '/images/baxmortgage-3.png', '/images/baxmortgage-4.png', '/images/baxmortgage-5.png'],
+    projectLink: 'https://baxmortgage.vercel.app/',
+    proprietary: true,
+    status: 'live'
+  },
+  {
     title: 'My Portfolio Website',
     description: 'A minimalist website for my portfolio',
     technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS',

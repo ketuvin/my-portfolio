@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGitAlt, FaDocker, FaAws, FaWordpress, FaBootstrap, FaSass, FaPhp } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiStoryblok, SiChakraui, SiApollographql, SiGo, SiPhp, SiYii, SiJquery, SiRedux, SiVercel, SiHeroku, SiFirebase, SiPostgresql, SiMysql, SiMongodb, SiRedis, SiElasticsearch, SiAlgolia, SiSentry, SiSwagger, SiBitbucket, SiGithub, SiJira, SiTrello, SiGoogle, SiShopify, SiNativescript, SiCrowdin, SiNotion, SiFilezilla, SiPayloadcms, SiSupabase, SiRobotframework, SiPrisma } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiLaravel, SiStoryblok, SiChakraui, SiApollographql, SiGo, SiPhp, SiYii, SiJquery, SiRedux, SiVercel, SiHeroku, SiFirebase, SiPostgresql, SiMysql, SiMongodb, SiRedis, SiElasticsearch, SiAlgolia, SiSentry, SiSwagger, SiBitbucket, SiGithub, SiJira, SiTrello, SiGoogle, SiShopify, SiNativescript, SiCrowdin, SiNotion, SiFilezilla, SiPayloadcms, SiSupabase, SiRobotframework, SiPrisma, SiRadixui, SiFramer } from 'react-icons/si';
 
 type Skill = { name: string; icon: ReactNode; rating: number };
 
@@ -17,13 +17,15 @@ export const skills: Skill[] = [
   { name: 'HTML5', icon: <FaHtml5 className="text-orange-600" />, rating: 9 },
   { name: 'Chakra UI', icon: <SiChakraui className="text-teal-500" />, rating: 7 },
   { name: 'Bootstrap', icon: <FaBootstrap className="text-purple-600" />, rating: 8 },
+  { name: 'Radix UI', icon: <SiRadixui className="text-black" />, rating: 7 },
+  { name: 'Framer Motion', icon: <SiFramer className="text-black" />, rating: 7 },
   
   // State Management & API
   { name: 'Zustand', icon: <span className="text-orange-500 font-bold">🐻</span>, rating: 8 },
   { name: 'Redux', icon: <SiRedux className="text-purple-700" />, rating: 7 },
   { name: 'Apollo GraphQL', icon: <SiApollographql className="text-pink-600" />, rating: 7 },
   { name: 'Storyblok', icon: <SiStoryblok className="text-black" />, rating: 6 },
-  { name: 'Payload CMS', icon: <SiPayloadcms className="text-blue-400" />, rating: 8 },
+  { name: 'Payload CMS', icon: <SiPayloadcms className="text-black" />, rating: 8 },
   
   // Backend
   { name: 'Node.js', icon: <FaNodeJs className="text-green-600" />, rating: 5 },
@@ -47,6 +49,7 @@ export const skills: Skill[] = [
   { name: 'MongoDB', icon: <SiMongodb className="text-green-600" />, rating: 7 },
   { name: 'Supabase', icon: <SiSupabase className="text-emerald-400" />, rating: 6 },
   { name: 'Prisma', icon: <SiPrisma className="text-black" />, rating: 6 },
+  { name: 'NeonDB', icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64" fill="none"><path d="M63 0.0177909V63.5526L38.4178 42.2501V63.5526H0V0L63 0.0177909ZM7.72251 55.8389H30.6953V25.3238L55.2779 47.0476V7.72922L7.72251 7.71559V55.8389Z" fill="#37C38F"/></svg>, rating: 7 },
   { name: 'Redis', icon: <SiRedis className="text-red-600" />, rating: 6 },
   { name: 'ElasticSearch', icon: <SiElasticsearch className="text-green-700" />, rating: 5 },
   { name: 'Algolia', icon: <SiAlgolia className="text-blue-600" />, rating: 5 },
