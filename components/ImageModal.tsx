@@ -26,9 +26,19 @@ const ImageModal: React.FC<ImageModalProps> = ({ images, currentIndex, onClose, 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={onClose} />
+        <button className={styles.closeButton} onClick={onClose} type="button" aria-label="Close">
+          &#10005;
+        </button>
         <button className={styles.prevButton} onClick={onPrev}>&#10094;</button>
-        <Image className={styles.mainImage} src={images[currentIndex]} alt="Full Screen" width={800} height={600} />
+        <Image
+          className={styles.mainImage}
+          src={images[currentIndex]}
+          alt="Full Screen"
+          width={1920}
+          height={1080}
+          unoptimized
+          style={{ objectFit: 'contain' }}
+        />
         <button className={styles.nextButton} onClick={onNext}>&#10095;</button>
         <div className={styles.thumbnailContainer}>
           {images.map((image, index) => (
