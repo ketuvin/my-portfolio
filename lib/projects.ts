@@ -12,6 +12,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'The Scout Guide (TSG) – Image Library Platform',
+    description: 'Next.js rebuild of TSG’s Laravel/Nova media library: searchable grid for spread, brand, marketing, and editor-conference collections; hybrid search (metadata, AI descriptions, vector service); R2-backed assets with Sharp processing; tag admin; cover color library; role-based ACL (users, roles, permissions); and Canva OAuth for in-editor access.',
+    technologies: 'Tech Stack: NextJS, ReactJS, Typescript, Tailwind CSS, Radix UI (shadcn/ui), Sharp, NeonDB, Vercel, Vercel CRON, Cloudfare R2, Prisma, Canva Integration, Mailgun, Cursor',
+    imageUrls: ['/images/tsg-1.png'],
+    projectLink: 'https://imagelibrary.thescoutguide.com/',
+    proprietary: true,
+    status: 'live'
+  },
+  {
     title: 'Bax Mortgage Website',
     description: 'Rebuild of Bax Mortgage Group Inc.’s website from WordPress to a modern Payload CMS + Next.js app. Multi-tenant CMS with role-based access and tenant-specific content. Includes cross-page block sync, a custom design system, and content migration from the previous site.',
     technologies: 'Tech Stack: NextJS, ReactJS, Typescript, Tailwind CSS, Payload CMS, Radix UI (shadcn/ui), NeonDB, Vercel, Vercel Blob, Framer Motion, Cursor',
