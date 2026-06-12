@@ -3,14 +3,20 @@
 @import 'tailwindcss/utilities';
 
 body {
-  @apply transition-all duration-300 ease-in-out; /* Apply a global transition for all elements */
-  margin: 0 5% 0 5%;
+  @apply transition-all duration-300 ease-in-out;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  min-height: 100vh; /* Ensure the entire viewport height is covered */
+  justify-content: center;
+  min-height: 100vh;
   font-family: 'Outfit', sans-serif;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 0 5%;
+  }
 }
 
 header {
@@ -33,8 +39,12 @@ div > h2 {
   @apply text-3xl mb-4 font-bungee-spice text-left;
 }
 
-div#about, div#projects {
+div#about {
   @apply px-8;
+}
+
+div#projects {
+  @apply px-4 md:px-8;
 }
 
 section {
@@ -56,4 +66,13 @@ section {
 
 .animate-fade-in {
   animation: fade-in 0.5s ease-in-out; /* Adjust duration and easing as needed */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
