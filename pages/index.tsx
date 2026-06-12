@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import QuickLinks from '../components/QuickLinks';
-import DownloadResumeFAB from '../components/DownloadResumeFAB';
+import ViewResumeFAB from '../components/ViewResumeFAB';
 import AboutSkeletonLoader from '../components/AboutSkeletonLoader';
 import ProjectsSkeletonLoader from '../components/ProjectsSkeletonLoader';
 import ProfileSkeletonLoader from '../components/ProfileSkeletonLoader';
@@ -36,13 +36,15 @@ const Home: React.FC = () => {
           <Profile />
           <QuickLinks />
         </section>
-        <section className="xl:col-span-9 relative h-full">
+        <section className="xl:col-span-9 relative flex flex-col xl:min-h-[calc(100vh-2rem)] xl:max-h-[calc(100vh-2rem)]">
           <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-          {activeSection === 'about' && <About />}
-          {activeSection === 'projects' && <Projects />}
+          <div className={`flex-1 min-h-0 ${activeSection === 'projects' ? 'overflow-hidden flex flex-col' : 'overflow-auto'}`}>
+            {activeSection === 'about' && <About />}
+            {activeSection === 'projects' && <Projects />}
+          </div>
         </section>
       </div>
-      <DownloadResumeFAB />
+      <ViewResumeFAB />
     </>
   );
 };
