@@ -1,176 +1,420 @@
 export type ProjectStatus = 'live' | 'down' | 'mvp' | 'not-live';
 
+export type ProjectCategory = 'enterprise' | 'startup' | 'gov' | 'personal' | 'healthcare';
+
 export type Project = {
   title: string;
+  slug: string;
   description: string;
-  technologies: string;
+  technologies: string[];
   imageUrls: string[];
   projectLink: string;
   proprietary: boolean;
   status: ProjectStatus;
+  featured?: boolean;
+  highlights: string[];
+  year: string;
+  client?: string;
+  category: ProjectCategory;
+  githubLink?: string;
 };
 
 export const projects: Project[] = [
   {
     title: 'The Scout Guide (TSG) – Image Library Platform',
-    description: 'Next.js rebuild of TSG’s Laravel/Nova media library: searchable grid for spread, brand, marketing, and editor-conference collections; hybrid search (metadata, AI descriptions, vector service); R2-backed assets with Sharp processing; tag admin; cover color library; role-based ACL (users, roles, permissions); and Canva OAuth for in-editor access.',
-    technologies: 'Tech Stack: NextJS, ReactJS, Typescript, Tailwind CSS, Radix UI (shadcn/ui), Sharp, NeonDB, Vercel, Vercel CRON, Cloudfare R2, Prisma, Canva Integration, Mailgun, Cursor',
+    slug: 'tsg-image-library',
+    description:
+      'Next.js rebuild of TSG’s Laravel/Nova media library: searchable grid for spread, brand, marketing, and editor-conference collections; hybrid search (metadata, AI descriptions, vector service); R2-backed assets with Sharp processing; tag admin; cover color library; role-based ACL (users, roles, permissions); and Canva OAuth for in-editor access.',
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Radix UI',
+      'Sharp',
+      'NeonDB',
+      'Vercel',
+      'Cloudflare R2',
+      'Prisma',
+      'Canva',
+      'Mailgun',
+    ],
     imageUrls: ['/images/tsg-1.png'],
     projectLink: 'https://imagelibrary.thescoutguide.com/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    featured: true,
+    highlights: [
+      'Independently rebuilt legacy Laravel full-stack app into Next.js, replacing the entire architecture within a 1-month deadline.',
+      'Implemented 3-layer hybrid search (metadata → AI descriptions → vector fallback), improving accuracy from ~10% to ~95%.',
+      'Redesigned bulk upload with session persistence (up to 5 days) and reconfigured Canva integration for the new platform.',
+    ],
+    year: '2026',
+    client: 'The Scout Guide · via Digital Renegades',
+    category: 'enterprise',
   },
   {
     title: 'Bax Mortgage Website',
-    description: 'Rebuild of Bax Mortgage Group Inc.’s website from WordPress to a modern Payload CMS + Next.js app. Multi-tenant CMS with role-based access and tenant-specific content. Includes cross-page block sync, a custom design system, and content migration from the previous site.',
-    technologies: 'Tech Stack: NextJS, ReactJS, Typescript, Tailwind CSS, Payload CMS, Radix UI (shadcn/ui), NeonDB, Vercel, Vercel Blob, Framer Motion, Cursor',
-    imageUrls: ['/images/baxmortgage-1.png', '/images/baxmortgage-2.png', '/images/baxmortgage-3.png', '/images/baxmortgage-4.png', '/images/baxmortgage-5.png'],
+    slug: 'bax-mortgage',
+    description:
+      'Rebuild of Bax Mortgage Group Inc.’s website from WordPress to a modern Payload CMS + Next.js app. Multi-tenant CMS with role-based access and tenant-specific content. Includes cross-page block sync, a custom design system, and content migration from the previous site.',
+    technologies: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Payload CMS',
+      'Radix UI',
+      'NeonDB',
+      'Vercel',
+      'Vercel Blob',
+      'Framer Motion',
+    ],
+    imageUrls: [
+      '/images/baxmortgage-1.png',
+      '/images/baxmortgage-2.png',
+      '/images/baxmortgage-3.png',
+      '/images/baxmortgage-4.png',
+      '/images/baxmortgage-5.png',
+    ],
     projectLink: 'https://baxmortgage.vercel.app/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    featured: true,
+    highlights: [
+      'Learned Payload CMS on the job and converted Bax Mortgage’s WordPress site into a modern Next.js + Payload app.',
+      'Built multi-tenancy with RBAC (Super Admin, Tenant Admin, Viewer) and a brand-aware design system with CSS variables.',
+      'Designed cross-page block sync with a “source of truth” pattern and migrated all WordPress content manually.',
+    ],
+    year: '2025',
+    client: 'Bax Mortgage · via Velvet Edge Inc.',
+    category: 'enterprise',
   },
   {
     title: 'My Portfolio Website',
+    slug: 'my-portfolio',
     description: 'A minimalist website for my portfolio',
-    technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     imageUrls: ['/images/my-portfolio.png'],
     projectLink: 'https://kevin-fuentes.vercel.app',
     proprietary: false,
-    status: 'live'
+    status: 'live',
+    featured: true,
+    highlights: [
+      'Designed and built a minimalist personal portfolio showcasing projects, skills, and experience.',
+      'Implemented responsive layout with dynamic imports and skeleton loaders for performance.',
+      'Deployed on Vercel with a focus on clean UX for recruiters and hiring managers.',
+    ],
+    year: '2024',
+    category: 'personal',
   },
   {
     title: 'X Plus Website',
+    slug: 'x-plus',
     description: 'X Plus company website',
-    technologies: 'Tech Stack: ReactJS, Tailwind CSS, Wordpress - Gutenberg blocks, Cursor',
+    technologies: ['React', 'Tailwind CSS', 'WordPress', 'Gutenberg'],
     imageUrls: ['/images/x-plus-1.png', '/images/x-plus-2.png'],
     projectLink: 'https://meetxplus.com',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    featured: true,
+    highlights: [
+      'Developed and maintained the X Plus company website using React and Tailwind CSS.',
+      'Built custom WordPress Gutenberg blocks for flexible content management.',
+      'Delivered a modern, responsive web presence for a global Storyblok CMS agency.',
+    ],
+    year: '2024',
+    client: 'X Plus Pte. Ltd.',
+    category: 'enterprise',
   },
   {
     title: 'Systemair (incl. Frico, Menerga)',
-    description: 'A global leader in sustainable HVAC solutions, offering a comprehensive portfolio including air handling units, fans, air conditioning, fire safety systems, and air distribution products. The platform serves as a central hub for product selection, technical documentation, and system configuration tools.',
-    technologies: 'Tech Stack: NextJS, ReactJS, Tailwind CSS, Storyblok, Zustand, SASS, Redis, ElasticSearch, Algolia, MongoDB, CrowdIn, Google Workspace, Cursor',
-    imageUrls: ['/images/systemair-1.png', '/images/systemair-2.png', '/images/systemair-3.png', '/images/systemair-4.png'],
+    slug: 'systemair',
+    description:
+      'A global leader in sustainable HVAC solutions, offering a comprehensive portfolio including air handling units, fans, air conditioning, fire safety systems, and air distribution products. The platform serves as a central hub for product selection, technical documentation, and system configuration tools.',
+    technologies: [
+      'Next.js',
+      'React',
+      'Tailwind CSS',
+      'Storyblok',
+      'Zustand',
+      'SASS',
+      'Redis',
+      'ElasticSearch',
+      'Algolia',
+      'MongoDB',
+      'CrowdIn',
+    ],
+    imageUrls: [
+      '/images/systemair-1.png',
+      '/images/systemair-2.png',
+      '/images/systemair-3.png',
+      '/images/systemair-4.png',
+    ],
     projectLink: 'https://www.systemair.com/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    featured: true,
+    highlights: [
+      'Implemented frontend features from Figma using a shared Next.js component library across multiple brand sites.',
+      'Independently designed and built 8 internal admin tools, reducing manual processes.',
+      'Resolved 50+ production issues and built a Tailwind design-system reference page for onboarding.',
+    ],
+    year: '2024',
+    client: 'Systemair AB · via X Plus Pte. Ltd.',
+    category: 'enterprise',
   },
   {
     title: 'Kaddy Marketplace',
+    slug: 'kaddy-marketplace',
     description: 'A beverage discovery and ordering platform with integrated payment solutions.',
-    technologies: 'Tech Stack: Chakra UI, Styled Components, Zustand, Heroku, Vercel, Sentry, Honeycomb, Algolia, FullStory, Segment, Stripe, Zepto Payments, Golang, Apollo GraphQL, TypeScript, NextJS, PostgreSQL, Docker, Playwright',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Chakra UI',
+      'GraphQL',
+      'Stripe',
+      'Algolia',
+      'PostgreSQL',
+      'Docker',
+      'Playwright',
+      'Golang',
+    ],
     imageUrls: ['/images/kaddy-marketplace-1.png', '/images/kaddy-marketplace-2.png'],
     projectLink: 'https://www.kaddy.com.au/',
     proprietary: true,
-    status: 'down'
+    status: 'down',
+    highlights: [
+      'Maintained three connected systems (customer, supplier, admin) as a full stack developer.',
+      'Contributed to “Pay Later” checkout tiers and integrated Google Maps for supplier visualization.',
+      'Resolved 20+ production issues and participated in documented Ubuntu deployment releases.',
+    ],
+    year: '2023',
+    client: 'Kaddy · via Privacy Media Pty. Ltd.',
+    category: 'startup',
   },
   {
     title: 'Kaddy Connect',
+    slug: 'kaddy-connect',
     description: 'An inventory and shipment management system for warehouses to track products and orders.',
-    technologies: 'Tech Stack: NextJS (Redux), SASS, Laravel, MySQL, AWS (S3, EC2, Elastic Beanstalk, SQS, Amplify, Code Pipeline), CartonCloud, Xero, Auspost',
+    technologies: ['Next.js', 'Redux', 'Laravel', 'MySQL', 'AWS', 'SASS'],
     imageUrls: ['/images/kaddy-connect-1.png', '/images/kaddy-connect-2.png'],
     projectLink: 'https://www.kaddy.com.au/',
     proprietary: true,
-    status: 'down'
+    status: 'down',
+    highlights: [
+      'Developed full stack features using Laravel and Next.js (Redux) for warehouse inventory management.',
+      'Built integrations with Shopify, WineDirect, Commerce7, Xero, Auspost, CartonCloud, and SFTP.',
+      'Maintained AWS infrastructure (S3, EC2, Elastic Beanstalk, SQS, Amplify, CodePipeline).',
+    ],
+    year: '2022',
+    client: 'Kaddy · via Privacy Media Pty. Ltd.',
+    category: 'startup',
   },
   {
     title: 'DHSUD Housing Loan App',
-    description: 'A government platform for housing loan applications, house reservations, and payment scheduling.',
-    technologies: 'Tech Stack: NextJS PWA, Typescript, Tailwind, Zustand, Vercel, Django, AWS, GCash, Stripe',
+    slug: 'dhsud-housing-loan',
+    description:
+      'A government platform for housing loan applications, house reservations, and payment scheduling.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand', 'Django', 'GCash', 'Stripe'],
     imageUrls: ['/images/dhsud-1.png', '/images/dhsud-2.png', '/images/dhsud-3.png'],
     projectLink: 'https://www.finnoven.ph/',
     proprietary: true,
-    status: 'mvp'
+    status: 'mvp',
+    highlights: [
+      'Acted as frontend lead building the housing loan PWA from scratch to MVP within 6 months.',
+      'Implemented mobile OTP login, KYC flow, and integrated GCash and Stripe payment gateways.',
+      'Set up Google Analytics 4 and mentored a junior developer on the codebase.',
+    ],
+    year: '2022',
+    client: 'DHSUD · via Finnoven Solutions',
+    category: 'gov',
   },
   {
     title: 'ICAO SMS TOOL',
+    slug: 'icao-sms-tool',
     description: 'An accident reporting system for the aviation industry.',
-    technologies: 'Tech Stack: ReactJS (Redux), Tailwind CSS, Laravel, MySQL, Swagger',
+    technologies: ['React', 'Redux', 'Tailwind CSS', 'Laravel', 'MySQL', 'Swagger'],
     imageUrls: ['/images/icao.png'],
     projectLink: 'https://www.infina.net/',
     proprietary: true,
-    status: 'mvp'
+    status: 'mvp',
+    highlights: [
+      'Learned Laravel and REST API development within ~4 weeks and applied it to production.',
+      'Designed database schemas, built REST APIs, and documented endpoints with Swagger.',
+      'Applied pagination, query optimizations, and payload reduction for real-time performance.',
+    ],
+    year: '2019',
+    client: 'Infina Ltd.',
+    category: 'enterprise',
   },
   {
     title: 'MedCenter',
-    description: 'A comprehensive Hospital Information System (HIS) designed for small hospitals. Manages all aspects of hospital operations including medical, administrative, financial, and legal processes. Features ADT, DocTool for physicians, NurseTool for charting, Results Management, and EClaims for PhilHealth.',
-    technologies: 'Tech Stack: Yii2, Core PHP, JQuery, ReactJS (Redux), Bootstrap, PostgreSQL, Robot Framework',
+    slug: 'medcenter',
+    description:
+      'A comprehensive Hospital Information System (HIS) designed for small hospitals. Manages all aspects of hospital operations including medical, administrative, financial, and legal processes. Features ADT, DocTool for physicians, NurseTool for charting, Results Management, and EClaims for PhilHealth.',
+    technologies: ['Yii2', 'PHP', 'React', 'Redux', 'PostgreSQL', 'Bootstrap', 'Robot Framework'],
     imageUrls: ['/images/salusciens-1.png', '/images/salusciens-2.png'],
     projectLink: 'https://www.salusciens.com/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    highlights: [
+      'Maintained MedCenter with five subsystems; owned NurseTool, DocTool, and Results Management.',
+      'Refactored legacy Yii monolithic controllers (15k–20k lines) using proper MVC separation.',
+      'Contributed to Yii1 → Yii2 migration and conducted hands-on training for hospital practitioners.',
+    ],
+    year: '2019',
+    client: 'Salusciens Inc.',
+    category: 'healthcare',
   },
   {
     title: 'MedBook',
-    description: 'A personal healthcare network providing access to medical records, prescriptions, and doctor communications.',
-    technologies: 'Tech Stack: Nativescript - Angular, Firebase',
+    slug: 'medbook',
+    description:
+      'A personal healthcare network providing access to medical records, prescriptions, and doctor communications.',
+    technologies: ['NativeScript', 'Angular', 'Firebase'],
     imageUrls: [],
     projectLink: 'https://www.salusciens.com/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    highlights: [
+      'Developed MedBook mobile app using NativeScript + Angular + Firebase from scratch.',
+      'Self-learned NativeScript in one week and delivered the app independently.',
+      'Enabled patients to access medical records, prescriptions, and doctor communications.',
+    ],
+    year: '2020',
+    client: 'Salusciens Inc.',
+    category: 'healthcare',
   },
   {
     title: 'MedLab',
+    slug: 'medlab',
     description: 'A laboratory information system for managing diagnostic testing, results, and reporting.',
-    technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, MySQL',
+    technologies: ['Yii2', 'PHP', 'Bootstrap', 'jQuery', 'MySQL'],
     imageUrls: [],
     projectLink: 'https://www.salusciens.com/',
     proprietary: true,
-    status: 'live'
+    status: 'live',
+    highlights: [
+      'Developed inventory and lab information system features in an Agile environment.',
+      'Learned Yii Framework within ~1 month and applied it to production features.',
+      'Delivered weekly demos and daily stand-ups to stakeholders during internship.',
+    ],
+    year: '2019',
+    client: 'Salusciens Inc.',
+    category: 'healthcare',
   },
   {
     title: 'Farmako',
+    slug: 'farmako',
     description: 'A pharmacy inventory system for tracking medicines, managing stock, and generating reports.',
-    technologies: 'Tech Stack: Yii2, Bootstrap, JQuery, PostgreSQL',
+    technologies: ['Yii2', 'PHP', 'Bootstrap', 'PostgreSQL'],
     imageUrls: ['/images/farmako.png'],
     projectLink: 'https://github.com/ketuvin/Pharmacy-Inventory-System',
     proprietary: false,
-    status: 'not-live'
+    status: 'not-live',
+    highlights: [
+      'Built a pharmacy inventory system for medicine tracking, stock management, and reporting.',
+      'Implemented CRUD operations and inventory workflows using Yii2 and PostgreSQL.',
+      'Open-source project demonstrating full stack PHP development skills.',
+    ],
+    year: '2018',
+    category: 'personal',
+    githubLink: 'https://github.com/ketuvin/Pharmacy-Inventory-System',
   },
   {
     title: 'DiaPlan',
+    slug: 'diaplan',
     description: 'An expert system for generating daily meal plans for type-2 diabetic patients.',
-    technologies: 'Tech Stack: Flex Expert System, HTML, CSS',
+    technologies: ['Flex Expert System', 'HTML', 'CSS'],
     imageUrls: ['/images/diaplan.png'],
-    projectLink: 'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
+    projectLink:
+      'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
     proprietary: false,
-    status: 'not-live'
+    status: 'not-live',
+    highlights: [
+      'Built an expert system generating daily meal plans for newly diagnosed type-2 diabetic patients.',
+      'Applied rule-based reasoning using Flex Expert System for nutritional recommendations.',
+      'Academic capstone project demonstrating AI and web development integration.',
+    ],
+    year: '2019',
+    category: 'personal',
+    githubLink:
+      'https://github.com/ketuvin/DiaPlan-A-Web-Expert-System-for-Generating-Daily-Menu-for-Newly-Diagnosed-Type-2-Diabetic',
   },
   {
     title: 'Basic ToDo List Management System',
+    slug: 'todo-list',
     description: 'A basic To-Do list management system, allowing users to view, create, update, and delete tasks',
-    technologies: 'Tech Stack: NuxtJS, Typescript, Tailwind CSS, Laravel, GraphQL, Docker',
+    technologies: ['Nuxt.js', 'TypeScript', 'Tailwind CSS', 'Laravel', 'GraphQL', 'Docker'],
     imageUrls: ['/images/todo-list-1.png', '/images/todo-list-2.png'],
     projectLink: 'https://github.com/ketuvin/todolist-frontend',
     proprietary: false,
-    status: 'not-live'
+    status: 'not-live',
+    highlights: [
+      'Built a full stack todo app with Nuxt.js frontend and Laravel GraphQL backend.',
+      'Implemented CRUD operations with TypeScript and containerized with Docker.',
+      'Demonstrates modern SPA + API architecture patterns.',
+    ],
+    year: '2021',
+    category: 'personal',
+    githubLink: 'https://github.com/ketuvin/todolist-frontend',
   },
   {
     title: 'Basic Scientific Calculator App',
+    slug: 'calculator-app',
     description: 'A scientific calculator web app with dark/light mode and mathematical functions.',
-    technologies: 'Tech Stack: NextJS, Typescript, Tailwind CSS, Zustand',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Zustand'],
     imageUrls: ['/images/calculator-1.png', '/images/calculator-2.png'],
     projectLink: 'https://github.com/ketuvin/calculator-app',
     proprietary: false,
-    status: 'not-live'
+    status: 'not-live',
+    highlights: [
+      'Built a scientific calculator with dark/light mode using Next.js and Zustand.',
+      'Implemented advanced mathematical functions with a polished responsive UI.',
+      'Demonstrates state management and theming in a React application.',
+    ],
+    year: '2023',
+    category: 'personal',
+    githubLink: 'https://github.com/ketuvin/calculator-app',
   },
   {
     title: 'Linamon COVID Tracker API',
-    description: 'Basic API Service for Linamon COVID tracker system: https://github.com/zeejay09/linamon-covid-tracker.',
-    technologies: 'Tech Stack: Laravel, MySQL, Swagger',
+    slug: 'linamon-covid-api',
+    description:
+      'Basic API Service for Linamon COVID tracker system: https://github.com/zeejay09/linamon-covid-tracker.',
+    technologies: ['Laravel', 'MySQL', 'Swagger'],
     imageUrls: [],
     projectLink: 'https://github.com/ketuvin/Linamon-COVID-tracker-API',
     proprietary: false,
-    status: 'not-live'
+    status: 'not-live',
+    highlights: [
+      'Built REST API backend for a municipal COVID-19 tracking system.',
+      'Documented endpoints with Swagger for frontend team integration.',
+      'Contributed to a community public-health tracking initiative.',
+    ],
+    year: '2020',
+    category: 'personal',
+    githubLink: 'https://github.com/ketuvin/Linamon-COVID-tracker-API',
   },
   {
     title: 'RAID Simulation Applet',
+    slug: 'raid-simulation',
     description: 'A UI simulation of RAID storage virtualization technology, demonstrating RAID levels 1-6.',
-    technologies: 'Tech Stack: Java, JavaFX',
+    technologies: ['Java', 'JavaFX'],
     imageUrls: ['/images/raid-gui-preview.jpg'],
     projectLink: 'https://github.com/ketuvin/RAID-SIMULATION',
     proprietary: false,
-    status: 'not-live'
-  }
+    status: 'not-live',
+    highlights: [
+      'Built a JavaFX GUI simulating RAID storage virtualization levels 1–6.',
+      'Visualized disk arrays, parity calculations, and fault tolerance behavior.',
+      'Academic project demonstrating systems programming and UI design.',
+    ],
+    year: '2018',
+    category: 'personal',
+    githubLink: 'https://github.com/ketuvin/RAID-SIMULATION',
+  },
 ];
+
+export const featuredProjects = projects.filter((p) => p.featured);
